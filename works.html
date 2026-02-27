@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nam Jung Kim — Works</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #eee;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 22px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #777;
+    }
+    .menu a.active { color: #111; }
+    .menu a:hover { color: #111; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 20px 90px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #f2f2f2;
+      border: 1px solid #eee;
+    }
+
+    .label {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #111;
+    }
+
+    .footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+      .menu { gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="works.html">Nam Jung Kim</a>
+      <div class="menu">
+        <a class="active" href="works.html">Works</a>
+        <a href="#">Biography</a>
+        <a href="#">Publications</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb1.jpg" alt="Drawings" />
+        <div class="label">Drawings</div>
+      </a>
+
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb2.jpg" alt="Red Paintings" />
+        <div class="label">Red Paintings</div>
+      </a>
+
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb3.jpg" alt="Blue Paintings" />
+        <div class="label">Blue Paintings</div>
+      </a>
+
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb4.jpg" alt="Maskhara" />
+        <div class="label">Maskhara</div>
+      </a>
+
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb5.jpg" alt="Theaters" />
+        <div class="label">Theaters</div>
+      </a>
+
+      <a class="card" href="#">
+        <img class="thumb" src="assets/thumb6.jpg" alt="Video Installations" />
+        <div class="label">Video Installations</div>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="y"></span> Nam Jung Kim
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
