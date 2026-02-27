@@ -1,11 +1,92 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Nam Jung Kim</title>
-  </head>
-  <body>
-    <h1>Hello 👋</h1>
-    <p>This is my artist website.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nam Jung Kim</title>
+  <style>
+    :root { --pad: 48px; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #000;
+    }
+
+    /* 3-layer slideshow (crossfade) */
+    .bg, .bg::before, .bg::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.85);
+      transform: scale(1.02);
+    }
+    .bg { background-image: url("assets/hero1.jpg"); animation: fade1 9s infinite; }
+    .bg::before { background-image: url("assets/hero2.jpg"); animation: fade2 9s infinite; }
+    .bg::after { background-image: url("assets/hero3.jpg"); animation: fade3 9s infinite; }
+
+    @keyframes fade1 { 0%, 33.33% {opacity: 1} 33.34%, 100% {opacity: 0} }
+    @keyframes fade2 { 0%, 33.33% {opacity: 0} 33.34%, 66.66% {opacity: 1} 66.67%, 100% {opacity: 0} }
+    @keyframes fade3 { 0%, 66.66% {opacity: 0} 66.67%, 100% {opacity: 1} }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+    }
+
+    .wrap {
+      position: relative;
+      height: 100vh;
+      padding: var(--pad);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .name {
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.02em;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 10px 2px;
+      border-bottom: 1px solid rgba(255,255,255,.65);
+    }
+    .enter:hover { border-bottom-color: rgba(255,255,255,1); }
+
+    /* mobile padding */
+    @media (max-width: 640px) {
+      :root { --pad: 24px; }
+      .wrap { align-items: flex-end; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="overlay"></div>
+
+  <main class="wrap">
+    <h1 class="name">Nam Jung Kim</h1>
+    <a class="enter" href="works.html" aria-label="Enter site">ENTER</a>
+  </main>
+</body>
 </html>
