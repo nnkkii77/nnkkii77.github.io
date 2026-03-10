@@ -7,6 +7,7 @@
   <style>
     :root { --pad: 48px; }
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       height: 100vh;
@@ -16,9 +17,7 @@
       background: #000;
     }
 
-    /* 3-layer slideshow (crossfade) */
-    .bg, .bg::before, .bg::after {
-      content: "";
+    .slide {
       position: fixed;
       inset: 0;
       background-size: cover;
@@ -26,24 +25,51 @@
       background-repeat: no-repeat;
       filter: brightness(0.85);
       transform: scale(1.02);
+      opacity: 0;
+      z-index: 0;
     }
-    .bg { background-image: url("https://nnkkii77.github.io/images/entry1.jpg"); animation: fade1 9s infinite; }
-    .bg::before { background-image: url("https://nnkkii77.github.io/images/entry2.jpg"); animation: fade2 9s infinite; }
-    .bg::after { background-image: url("https://nnkkii77.github.io/images/entry3.jpg"); animation: fade3 9s infinite; }
 
-    @keyframes fade1 { 0%, 33.33% {opacity: 1} 33.34%, 100% {opacity: 0} }
-    @keyframes fade2 { 0%, 33.33% {opacity: 0} 33.34%, 66.66% {opacity: 1} 66.67%, 100% {opacity: 0} }
-    @keyframes fade3 { 0%, 66.66% {opacity: 0} 66.67%, 100% {opacity: 1} }
+    .slide1 {
+      background-image: url("https://nnkkii77.github.io/images/entry1.jpg");
+      animation: fade1 9s infinite;
+    }
 
-    /* Overlay */
+    .slide2 {
+      background-image: url("https://nnkkii77.github.io/images/entry2.jpg");
+      animation: fade2 9s infinite;
+    }
+
+    .slide3 {
+      background-image: url("https://nnkkii77.github.io/images/entry3.jpg");
+      animation: fade3 9s infinite;
+    }
+
+    @keyframes fade1 {
+      0%, 33.33% { opacity: 1; }
+      33.34%, 100% { opacity: 0; }
+    }
+
+    @keyframes fade2 {
+      0%, 33.33% { opacity: 0; }
+      33.34%, 66.66% { opacity: 1; }
+      66.67%, 100% { opacity: 0; }
+    }
+
+    @keyframes fade3 {
+      0%, 66.66% { opacity: 0; }
+      66.67%, 100% { opacity: 1; }
+    }
+
     .overlay {
       position: fixed;
       inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+      z-index: 1;
     }
 
     .wrap {
       position: relative;
+      z-index: 2;
       height: 100vh;
       padding: var(--pad);
       display: flex;
@@ -71,9 +97,11 @@
       padding: 10px 2px;
       border-bottom: 1px solid rgba(255,255,255,.65);
     }
-    .enter:hover { border-bottom-color: rgba(255,255,255,1); }
 
-    /* mobile padding */
+    .enter:hover {
+      border-bottom-color: rgba(255,255,255,1);
+    }
+
     @media (max-width: 640px) {
       :root { --pad: 24px; }
       .wrap { align-items: flex-end; }
@@ -81,7 +109,9 @@
   </style>
 </head>
 <body>
-  <div class="bg"></div>
+  <div class="slide slide1"></div>
+  <div class="slide slide2"></div>
+  <div class="slide slide3"></div>
   <div class="overlay"></div>
 
   <main class="wrap">
