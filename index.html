@@ -17,47 +17,17 @@
       background: #000;
     }
 
-    .slide {
+    .bg {
       position: fixed;
       inset: 0;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      background-image: url("https://nnkkii77.github.io/images/entry1.jpg");
       filter: brightness(0.85);
       transform: scale(1.02);
-      opacity: 0;
+      transition: background-image 0.8s ease-in-out;
       z-index: 0;
-    }
-
-    .slide1 {
-      background-image: url("https://nnkkii77.github.io/images/entry1.jpg");
-      animation: fade1 9s infinite;
-    }
-
-    .slide2 {
-      background-image: url("https://nnkkii77.github.io/images/entry2.jpg");
-      animation: fade2 9s infinite;
-    }
-
-    .slide3 {
-      background-image: url("https://nnkkii77.github.io/images/entry3.jpg");
-      animation: fade3 9s infinite;
-    }
-
-    @keyframes fade1 {
-      0%, 33.33% { opacity: 1; }
-      33.34%, 100% { opacity: 0; }
-    }
-
-    @keyframes fade2 {
-      0%, 33.33% { opacity: 0; }
-      33.34%, 66.66% { opacity: 1; }
-      66.67%, 100% { opacity: 0; }
-    }
-
-    @keyframes fade3 {
-      0%, 66.66% { opacity: 0; }
-      66.67%, 100% { opacity: 1; }
     }
 
     .overlay {
@@ -109,14 +79,28 @@
   </style>
 </head>
 <body>
-  <div class="slide slide1"></div>
-  <div class="slide slide2"></div>
-  <div class="slide slide3"></div>
+  <div class="bg" id="bg"></div>
   <div class="overlay"></div>
 
   <main class="wrap">
     <h1 class="name">Nam Jung Kim</h1>
     <a class="enter" href="works.html" aria-label="Enter site">ENTER</a>
   </main>
+
+  <script>
+    const images = [
+      "https://nnkkii77.github.io/images/entry1.jpg",
+      "https://nnkkii77.github.io/images/entry2.jpg",
+      "https://nnkkii77.github.io/images/entry3.jpg"
+    ];
+
+    const bg = document.getElementById("bg");
+    let current = 0;
+
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      bg.style.backgroundImage = `url("${images[current]}")`;
+    }, 3000);
+  </script>
 </body>
 </html>
