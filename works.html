@@ -1,172 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nam Jung Kim — Works</title>
-  <style>
-    * { box-sizing: border-box; }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nam Jung Kim — Works</title>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: #111;
-      background: #f5f5f3;
-    }
+<style>
+*{box-sizing:border-box;}
 
-    .header {
-      position: sticky;
-      top: 0;
-      background: rgba(245,245,243,.96);
-      backdrop-filter: blur(6px);
-      z-index: 100;
-    }
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+background:#f5f5f3;
+color:#111;
+}
 
-    .nav {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 18px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+.header{
+position:sticky;
+top:0;
+background:rgba(245,245,243,.96);
+backdrop-filter:blur(6px);
+z-index:100;
+}
 
-    .brand {
-      text-decoration: none;
-      color: inherit;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
+.nav{
+max-width:1380px;
+margin:0 auto;
+padding:18px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
 
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
+.brand{
+text-decoration:none;
+color:inherit;
+font-size:24px;
+font-weight:700;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
 
-    .menu a {
-      text-decoration: none;
-      color: #8b8b8b;
-    }
+.menu{
+display:flex;
+gap:34px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
 
-    .menu a.active,
-    .menu a:hover {
-      color: #111;
-    }
+.menu a{
+text-decoration:none;
+color:#8b8b8b;
+}
 
-    .container {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 64px 28px 70px;
-    }
+.menu a:hover,
+.menu a.active{
+color:#111;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 44px 40px;
-    }
+.container{
+max-width:1380px;
+margin:0 auto;
+padding:64px 28px 80px;
+}
 
-    .card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:44px 40px;
+}
 
-    .thumb {
-      width: 100%;
-      aspect-ratio: 1.15 / 1;
-      object-fit: cover;
-      display: block;
-      background: #ececec;
-    }
+.card{
+display:block;
+text-decoration:none;
+color:inherit;
+}
 
-    .label {
-      margin-top: 22px;
-      text-align: center;
-      font-size: 18px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
+.thumb{
+width:100%;
+aspect-ratio:1.1/1;
+object-fit:cover;
+display:block;
+background:#e9e9e9;
+}
 
-    @media (max-width: 980px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+.label{
+margin-top:16px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+text-align:center;
+line-height:1.8;
+color:#666;
+}
 
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+@media (max-width:980px){
+.grid{grid-template-columns:repeat(2,1fr);}
+}
 
-      .menu {
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-
-      .container {
-        padding-top: 34px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .label {
-        font-size: 16px;
-        margin-top: 14px;
-      }
-    }
-  </style>
+@media (max-width:640px){
+.nav{
+flex-direction:column;
+align-items:flex-start;
+}
+.menu{
+gap:18px;
+flex-wrap:wrap;
+}
+.grid{
+grid-template-columns:1fr;
+gap:30px;
+}
+}
+</style>
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
-      <a class="brand" href="works.html">Nam Jung Kim</a>
-      <div class="menu">
-        <a href="about.html">About</a>
-        <a class="active" href="works.html">Works</a>
-        <a href="publications.html">Publications</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="grid">
-      <a class="card" href="#">
-        <img class="thumb" src="assets/installation.jpg" alt="Installations" />
-        <div class="label">Installations</div>
-      </a>
+<header class="header">
+<nav class="nav">
+<a class="brand" href="works.html">Nam Jung Kim</a>
+<div class="menu">
+<a href="about.html">About</a>
+<a class="active" href="works.html">Works</a>
+<a href="publications.html">Publications</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+</header>
 
-      <a class="card" href="#">
-        <img class="thumb" src="assets/video.jpg" alt="Videos" />
-        <div class="label">Videos</div>
-      </a>
+<main class="container">
+<section class="grid">
 
-      <a class="card" href="#">
-        <img class="thumb" src="assets/research-projects.jpg" alt="Research Projects" />
-        <div class="label">Research Projects</div>
-      </a>
+<a class="card" href="installations.html">
+<img class="thumb" src="assets/installation-cover.jpg" alt="Installations"/>
+<div class="label">Installations</div>
+</a>
 
-      <a class="card" href="#">
-        <img class="thumb" src="assets/drawing-painting.jpg" alt="Drawings and Paintings" />
-        <div class="label">Drawings / Paintings</div>
-      </a>
+<a class="card" href="videos.html">
+<img class="thumb" src="assets/video-cover.jpg" alt="Videos"/>
+<div class="label">Videos</div>
+</a>
 
-      <a class="card" href="#">
-        <img class="thumb" src="assets/community-projects.jpg" alt="Community Projects" />
-        <div class="label">Community Projects</div>
-      </a>
-    </section>
-  </main>
+<a class="card" href="research-projects.html">
+<img class="thumb" src="assets/research-cover.jpg" alt="Research Projects"/>
+<div class="label">Research Projects</div>
+</a>
+
+<a class="card" href="drawings-paintings.html">
+<img class="thumb" src="assets/drawing-cover.jpg" alt="Drawings Paintings"/>
+<div class="label">Drawings / Paintings</div>
+</a>
+
+<a class="card" href="community-projects.html">
+<img class="thumb" src="assets/community-cover.jpg" alt="Community Projects"/>
+<div class="label">Community Projects</div>
+</a>
+
+</section>
+</main>
+
 </body>
 </html>
