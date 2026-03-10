@@ -3,35 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nam Jung Kim</title>
+  <title>Nam Jung Kim — Works</title>
   <style>
     * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color: #111;
-      background: #fff;
-      line-height: 1.5;
+      background: #f5f5f3;
     }
 
     .header {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,.95);
+      background: rgba(245,245,243,.96);
       backdrop-filter: blur(6px);
-      border-bottom: 1px solid #eee;
       z-index: 100;
     }
 
     .nav {
-      max-width: 1100px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 24px 20px;
+      padding: 18px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -39,90 +33,43 @@
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 22px;
       text-decoration: none;
       color: inherit;
-      white-space: nowrap;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     .menu {
       display: flex;
-      gap: 28px;
-      font-size: 13px;
+      align-items: center;
+      gap: 34px;
+      font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .menu a {
       text-decoration: none;
-      color: #777;
-      transition: color .2s ease;
+      color: #8b8b8b;
     }
 
+    .menu a.active,
     .menu a:hover {
       color: #111;
     }
 
-    .hero {
-      max-width: 1100px;
+    .container {
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 72px 20px 36px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(34px, 6vw, 68px);
-      line-height: 1.05;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p {
-      max-width: 620px;
-      margin: 18px 0 0;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 72px 20px 84px;
-      scroll-margin-top: 110px;
-    }
-
-    .section-title {
-      margin: 0 0 28px;
-      font-size: 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #777;
-    }
-
-    .works-group {
-      margin-bottom: 56px;
-    }
-
-    .works-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .works-group h3 {
-      margin: 0 0 18px;
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      padding: 64px 28px 70px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 44px 40px;
     }
 
     .card {
@@ -133,90 +80,21 @@
 
     .thumb {
       width: 100%;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1.15 / 1;
       object-fit: cover;
-      background: #f2f2f2;
-      border: 1px solid #eee;
       display: block;
+      background: #ececec;
     }
 
     .label {
-      margin-top: 12px;
-      font-size: 12px;
-      letter-spacing: 0.16em;
+      margin-top: 22px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #111;
     }
 
-    .meta {
-      margin-top: 6px;
-      font-size: 14px;
-      color: #777;
-    }
-
-    .about-wrap,
-    .pub-wrap,
-    .contact-wrap {
-      max-width: 760px;
-    }
-
-    .about-name {
-      margin: 0 0 18px;
-      font-size: 32px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-weight: 600;
-    }
-
-    .about-text,
-    .contact-text {
-      margin: 0 0 16px;
-      font-size: 16px;
-      color: #444;
-    }
-
-    .pub-list,
-    .contact-list {
-      margin: 24px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .pub-list li,
-    .contact-list li {
-      padding: 18px 0;
-      border-top: 1px solid #eee;
-    }
-
-    .pub-list li:last-child,
-    .contact-list li:last-child {
-      border-bottom: 1px solid #eee;
-    }
-
-    .pub-title,
-    .contact-label {
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #111;
-      margin-bottom: 6px;
-    }
-
-    .pub-detail,
-    .contact-detail {
-      font-size: 15px;
-      color: #666;
-    }
-
-    .footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px 60px;
-      color: #777;
-      font-size: 13px;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -224,207 +102,71 @@
 
     @media (max-width: 640px) {
       .nav {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
 
       .menu {
-        gap: 16px;
-        justify-content: flex-start;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .container {
+        padding-top: 34px;
       }
 
       .grid {
         grid-template-columns: 1fr;
+        gap: 30px;
       }
 
-      .hero {
-        padding-top: 56px;
-      }
-
-      .section {
-        padding-top: 56px;
-        padding-bottom: 64px;
+      .label {
+        font-size: 16px;
+        margin-top: 14px;
       }
     }
   </style>
 </head>
-<body id="top">
+<body>
   <header class="header">
     <nav class="nav">
-      <a class="brand" href="#top">Nam Jung Kim</a>
+      <a class="brand" href="works.html">Nam Jung Kim</a>
       <div class="menu">
-        <a href="#works">Works</a>
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
+        <a href="about.html">About</a>
+        <a class="active" href="works.html">Works</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
       </div>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Nam Jung Kim</h1>
-    <p>
-      Artist working across installation, video, research-based practice,
-      drawing and painting, and community projects.
-    </p>
-  </section>
+  <main class="container">
+    <section class="grid">
+      <a class="card" href="#">
+        <img class="thumb" src="assets/installation.jpg" alt="Installation" />
+        <div class="label">Installation</div>
+      </a>
 
-  <main>
-    <section class="section" id="works">
-      <h2 class="section-title">Works</h2>
+      <a class="card" href="#">
+        <img class="thumb" src="assets/video.jpg" alt="Video" />
+        <div class="label">Video</div>
+      </a>
 
-      <div class="works-group">
-        <h3>Installation</h3>
-        <div class="grid">
-          <a class="card" href="#">
-            <img class="thumb" src="assets/installation1.jpg" alt="Installation work 1" />
-            <div class="label">Fortress for One Point Two</div>
-            <div class="meta">Installation, 2025</div>
-          </a>
+      <a class="card" href="#">
+        <img class="thumb" src="assets/research-projects.jpg" alt="Research Projects" />
+        <div class="label">Research Projects</div>
+      </a>
 
-          <a class="card" href="#">
-            <img class="thumb" src="assets/installation2.jpg" alt="Installation work 2" />
-            <div class="label">Flourishing, Then</div>
-            <div class="meta">Installation, 2024</div>
-          </a>
+      <a class="card" href="#">
+        <img class="thumb" src="assets/drawing-painting.jpg" alt="Drawing and Painting" />
+        <div class="label">Drawing / Painting</div>
+      </a>
 
-          <a class="card" href="#">
-            <img class="thumb" src="assets/installation3.jpg" alt="Installation work 3" />
-            <div class="label">Flow and Containment</div>
-            <div class="meta">Installation, 2023</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="works-group">
-        <h3>Video</h3>
-        <div class="grid">
-          <a class="card" href="#">
-            <img class="thumb" src="assets/video1.jpg" alt="Video work 1" />
-            <div class="label">Video Work 01</div>
-            <div class="meta">Moving image, 2024</div>
-          </a>
-
-          <a class="card" href="#">
-            <img class="thumb" src="assets/video2.jpg" alt="Video work 2" />
-            <div class="label">Video Work 02</div>
-            <div class="meta">Moving image, 2023</div>
-          </a>
-
-          <a class="card" href="#">
-            <img class="thumb" src="assets/video3.jpg" alt="Video work 3" />
-            <div class="label">Video Work 03</div>
-            <div class="meta">Moving image, 2023</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="works-group">
-        <h3>Research Projects</h3>
-        <div class="grid">
-          <a class="card" href="#">
-            <img class="thumb" src="assets/research1.jpg" alt="Research project 1" />
-            <div class="label">Environmental Research Project</div>
-            <div class="meta">Research project</div>
-          </a>
-
-          <a class="card" href="#">
-            <img class="thumb" src="assets/research2.jpg" alt="Research project 2" />
-            <div class="label">Child-Friendly City Workshop</div>
-            <div class="meta">Workshop / research project</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="works-group">
-        <h3>Drawing / Painting</h3>
-        <div class="grid">
-          <a class="card" href="#">
-            <img class="thumb" src="assets/drawing1.jpg" alt="Drawing or painting work" />
-            <div class="label">Drawing / Painting Work</div>
-            <div class="meta">Drawing / painting</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="works-group">
-        <h3>Community Projects</h3>
-        <div class="grid">
-          <a class="card" href="#">
-            <img class="thumb" src="assets/community1.jpg" alt="Community project 1" />
-            <div class="label">Bbaeppyeol Village One-Day Event</div>
-            <div class="meta">Community project, team of five</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <h2 class="section-title">About</h2>
-      <div class="about-wrap">
-        <h3 class="about-name">Nam Jung Kim</h3>
-        <p class="about-text">
-          Nam Jung Kim is an artist working across installation, video,
-          research-based practice, drawing and painting, and community projects.
-        </p>
-        <p class="about-text">
-          Her work explores space, environment, material, and the relationship
-          between bodies and built surroundings.
-        </p>
-        <p class="about-text">
-          You can later expand this section with a longer artist statement,
-          short biography, exhibitions, education, and awards.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" id="publications">
-      <h2 class="section-title">Publications</h2>
-      <div class="pub-wrap">
-        <ul class="pub-list">
-          <li>
-            <div class="pub-title">Research Writing</div>
-            <div class="pub-detail">
-              Add your published research text title, publication name, and year here.
-            </div>
-          </li>
-          <li>
-            <div class="pub-title">Book Project</div>
-            <div class="pub-detail">
-              Forthcoming book project in progress.
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-wrap">
-        <p class="contact-text">
-          For exhibitions, collaborations, publications, or other inquiries,
-          please get in touch.
-        </p>
-        <ul class="contact-list">
-          <li>
-            <div class="contact-label">Email</div>
-            <div class="contact-detail">yourname@email.com</div>
-          </li>
-          <li>
-            <div class="contact-label">Instagram</div>
-            <div class="contact-detail">@yourinstagram</div>
-          </li>
-        </ul>
-      </div>
+      <a class="card" href="#">
+        <img class="thumb" src="assets/community-projects.jpg" alt="Community Projects" />
+        <div class="label">Community Projects</div>
+      </a>
     </section>
   </main>
-
-  <footer class="footer">
-    © <span id="y"></span> Nam Jung Kim
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
