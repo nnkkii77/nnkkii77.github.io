@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nam Jung Kim — Publications</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #111;
+      background: #f5f5f3;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      background: rgba(245,245,243,.96);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      text-decoration: none;
+      color: inherit;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #8b8b8b;
+    }
+
+    .menu a.active,
+    .menu a:hover {
+      color: #111;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 28px;
+    }
+
+    h1 {
+      margin: 0 0 32px;
+      font-size: 34px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .item {
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .item:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .container {
+        padding-top: 42px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a class="brand" href="works.html">Nam Jung Kim</a>
+      <div class="menu">
+        <a href="about.html">About</a>
+        <a href="works.html">Works</a>
+        <a class="active" href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Publications</h1>
+
+    <div class="item">
+      <div class="title">Research Writing</div>
+      <div class="meta">
+        Add your published research text title, publication name, and year here.
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="title">Book Project</div>
+      <div class="meta">
+        Forthcoming book project in progress.
+      </div>
+    </div>
+  </main>
+</body>
+</html>
