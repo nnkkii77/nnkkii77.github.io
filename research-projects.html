@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nam Jung Kim — Research Projects</title>
 
+<style>
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+background:#f5f5f3;
+color:#111;
+}
+
+.header{
+position:sticky;
+top:0;
+background:rgba(245,245,243,.96);
+backdrop-filter:blur(6px);
+z-index:100;
+}
+
+.nav{
+max-width:1380px;
+margin:0 auto;
+padding:18px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+text-decoration:none;
+color:inherit;
+font-size:24px;
+font-weight:700;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
+
+.menu{
+display:flex;
+gap:34px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+
+.menu a{
+text-decoration:none;
+color:#8b8b8b;
+}
+
+.menu a:hover,
+.menu a.active{
+color:#111;
+}
+
+.container{
+max-width:1380px;
+margin:0 auto;
+padding:54px 28px 80px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:48px 40px;
+}
+
+.card{
+display:block;
+text-decoration:none;
+color:inherit;
+}
+
+.thumb{
+width:100%;
+aspect-ratio:1.2/1;
+object-fit:cover;
+display:block;
+background:#ececec;
+}
+
+.label{
+margin-top:12px;
+font-size:12px;
+letter-spacing:.14em;
+text-transform:uppercase;
+text-align:center;
+line-height:1.8;
+color:#666;
+}
+
+@media (max-width:640px){
+.nav{
+flex-direction:column;
+align-items:flex-start;
+}
+.menu{
+gap:18px;
+flex-wrap:wrap;
+}
+.grid{
+grid-template-columns:1fr;
+gap:28px;
+}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+<nav class="nav">
+<a class="brand" href="works.html">Nam Jung Kim</a>
+<div class="menu">
+<a href="about.html">About</a>
+<a class="active" href="works.html">Works</a>
+<a href="publications.html">Publications</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+<section class="grid">
+
+<a class="card" href="#"><img class="thumb" src="assets/research-01.jpg" alt="Research 1"><div class="label">Child-Friendly City Workshop</div></a>
+<a class="card" href="#"><img class="thumb" src="assets/research-02.jpg" alt="Research 2"><div class="label">Environmental Research Project</div></a>
+
+</section>
+</main>
+
+</body>
+</html>
