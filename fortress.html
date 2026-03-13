@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fortress for One Point Two — Nam Jung Kim</title>
+
+<style>
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+background:#f5f5f3;
+color:#111;
+}
+
+.header{
+position:sticky;
+top:0;
+background:rgba(245,245,243,.96);
+backdrop-filter:blur(6px);
+z-index:100;
+}
+
+.nav{
+max-width:1380px;
+margin:0 auto;
+padding:18px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.brand{
+text-decoration:none;
+color:inherit;
+font-size:24px;
+font-weight:700;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
+
+.menu{
+display:flex;
+gap:34px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+
+.menu a{
+text-decoration:none;
+color:#8b8b8b;
+}
+
+.menu a:hover,
+.menu a.active{
+color:#111;
+}
+
+.container{
+max-width:1200px;
+margin:0 auto;
+padding:60px 28px 100px;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:80vh;
+}
+
+.viewer{
+display:flex;
+gap:70px;
+align-items:center;
+width:100%;
+}
+
+.media{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.media img,
+.media video{
+max-width:100%;
+max-height:70vh;
+object-fit:contain;
+box-shadow:0 16px 50px rgba(0,0,0,.08);
+}
+
+.text{
+width:380px;
+}
+
+.title{
+font-size:38px;
+line-height:1.1;
+margin-bottom:20px;
+letter-spacing:-.02em;
+}
+
+.meta{
+font-size:13px;
+letter-spacing:.1em;
+text-transform:uppercase;
+color:#777;
+margin-bottom:20px;
+}
+
+.desc{
+font-size:16px;
+line-height:1.8;
+}
+
+.arrow{
+position:fixed;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+background:none;
+border:none;
+cursor:pointer;
+color:#111;
+opacity:.5;
+}
+
+.arrow:hover{
+opacity:1;
+}
+
+.prev{
+left:30px;
+}
+
+.next{
+right:30px;
+}
+
+.counter{
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+font-size:12px;
+letter-spacing:.2em;
+color:#888;
+}
+
+@media (max-width:900px){
+
+.viewer{
+flex-direction:column;
+gap:30px;
+}
+
+.text{
+width:100%;
+max-width:600px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+<nav class="nav">
+<a class="brand" href="works.html">Nam Jung Kim</a>
+
+<div class="menu">
+<a href="about.html">About</a>
+<a class="active" href="works.html">Works</a>
+<a href="publications.html">Publications</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+</header>
+
+<main class="container">
+
+<button class="arrow prev" onclick="prevSlide()">‹</button>
+
+<div class="viewer">
+
+<div class="media" id="media"></div>
+
+<div class="text">
+
+<div class="title">
+Fortress for One Point Two
+</div>
+
+<div class="meta">
+Installation / 2024
+</div>
+
+<div class="desc">
+
+Write your project description here.
+
+This installation explores ideas of spatial tension and structural balance.
+You can describe the concept, exhibition, materials, or context.
+
+You can write multiple paragraphs here.
+
+</div>
+
+</div>
+
+</div>
+
+<button class="arrow next" onclick="nextSlide()">›</button>
+
+</main>
+
+<div class="counter" id="counter"></div>
+
+<script>
+
+const slides = [
+
+{
+type:"image",
+src:"https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/fortress.jpg"
+},
+
+{
+type:"image",
+src:"https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/fortress.jpg"
+},
+
+{
+type:"video",
+src:"your-video-file.mp4"
+}
+
+]
+
+let index=0
+
+function render(){
+
+const media=document.getElementById("media")
+media.innerHTML=""
+
+let item=slides[index]
+
+if(item.type==="image"){
+
+let img=document.createElement("img")
+img.src=item.src
+media.appendChild(img)
+
+}
+
+if(item.type==="video"){
+
+let video=document.createElement("video")
+video.src=item.src
+video.controls=true
+video.autoplay=false
+media.appendChild(video)
+
+}
+
+document.getElementById("counter").innerText=(index+1)+" / "+slides.length
+
+}
+
+function nextSlide(){
+
+index++
+
+if(index>=slides.length){
+index=0
+}
+
+render()
+
+}
+
+function prevSlide(){
+
+index--
+
+if(index<0){
+index=slides.length-1
+}
+
+render()
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="ArrowRight"){nextSlide()}
+if(e.key==="ArrowLeft"){prevSlide()}
+
+})
+
+render()
+
+</script>
+
+</body>
+</html>
