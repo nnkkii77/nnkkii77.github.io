@@ -1,1 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Nam Jung Kim — Work Detail</title>
 
+<style>
+*{box-sizing:border-box;}
+
+html,body{
+margin:0;
+padding:0;
+background:#f5f5f3;
+color:#111;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+
+body{
+min-height:100vh;
+}
+
+.header{
+position:sticky;
+top:0;
+background:rgba(245,245,243,.96);
+backdrop-filter:blur(6px);
+z-index:100;
+}
+
+.nav{
+max-width:1380px;
+margin:0 auto;
+padding:18px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+text-decoration:none;
+color:inherit;
+font-size:24px;
+font-weight:700;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
+
+.menu{
+display:flex;
+gap:34px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+
+.menu a{
+text-decoration:none;
+color:#8b8b8b;
+}
+
+.menu a:hover,
+.menu a.active{
+color:#111;
+}
+
+.detail-shell{
+position:relative;
+max-width:1380px;
+margin:0 auto;
+padding:40px 28px 80px;
+min-height:calc(100vh - 80px);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.nav-arrow{
+position:fixed;
+top:50%;
+transform:translateY(-50%);
+width:64px;
+height:64px;
+border:none;
+background:transparent;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:50;
+padding:0;
+}
+
+.nav-arrow svg{
+width:34px;
+height:34px;
+stroke:#111;
+stroke-width:1.6;
+fill:none;
+}
+
+.nav-arrow:hover{
+opacity:.55;
+}
+
+.nav-prev{left:28px;}
+.nav-next{right:28px;}
+
+.detail-stage{
+width:min(100%, 1100px);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.detail-card{
+width:100%;
+display:grid;
+grid-template-columns:minmax(320px, 1fr) minmax(260px, 420px);
+gap:70px;
+align-items:center;
+}
+
+.media-wrap{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:60vh;
+}
+
+.media-stack{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+width:100%;
+}
+
+.media-item{
+max-width:100%;
+display:flex;
+justify-content:center;
+}
+
+.media-item img,
+.media-item video{
+max-width:100%;
+max-height:70vh;
+width:auto;
+height:auto;
+display:block;
+object-fit:contain;
+background:transparent;
+box-shadow:0 16px 50px rgba(0,0,0,.06);
+}
+
+.text-wrap{
+display:flex;
+align-items:center;
+}
+
+.text-card{
+max-width:420px;
+}
+
+.kicker{
+font-size:11px;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:#8b8b8b;
+margin-bottom:14px;
+}
+
+.title{
+margin:0 0 16px;
+font-size:clamp(28px, 3vw, 44px);
+line-height:1.08;
+font-weight:500;
+letter-spacing:-.03em;
+}
+
+.meta{
+font-size:13px;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:#777;
+margin-bottom:20px;
+line-height:1.8;
+}
+
+.desc{
+font-size:16px;
+line-height:1.8;
+color:#222;
+white-space:pre-line;
+}
+
+.back-link{
+display:inline-block;
+margin-top:30px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+text-decoration:none;
+color:#777;
+}
+
+.back-link:hover{
+color:#111;
+}
+
+.counter{
+position:fixed;
+bottom:26px;
+left:50%;
+transform:translateX(-50%);
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#8b8b8b;
+}
+
+@media (max-width:980px){
+.detail-card{
+grid-template-columns:1fr;
+gap:34px;
+}
+.media-wrap{
+min-height:auto;
+}
+.text-wrap{
+justify-content:center;
+}
+.text-card{
+max-width:720px;
+text-align:left;
+}
+.nav-prev{left:10px;}
+.nav-next{right:10px;}
+.nav-arrow{
+width:50px;
+height:50px;
+}
+}
+
+@media (max-width:640px){
+.nav{
+flex-direction:column;
+align-items:flex-start;
+}
+.menu{
+gap:18px;
+flex-wrap:wrap;
+}
+.detail-shell{
+padding:24px 18px 80px;
+}
+.title{
+font-size:30px;
+}
+.desc{
+font-size:15px;
+line-height:1.75;
+}
+.media-item img,
+.media-item video{
+max-height:54vh;
+}
+.nav-arrow svg{
+width:28px;
+height:28px;
+}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="works.html">Nam Jung Kim</a>
+    <div class="menu">
+      <a href="about.html">About</a>
+      <a class="active" href="works.html">Works</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="detail-shell">
+  <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous work">
+    <svg viewBox="0 0 24 24">
+      <path d="M15 4 L7 12 L15 20"></path>
+    </svg>
+  </button>
+
+  <section class="detail-stage">
+    <article class="detail-card">
+      <div class="media-wrap">
+        <div class="media-stack" id="mediaStack"></div>
+      </div>
+
+      <div class="text-wrap">
+        <div class="text-card">
+          <div class="kicker" id="workCategory">Installations</div>
+          <h1 class="title" id="workTitle">Title</h1>
+          <div class="meta" id="workMeta"></div>
+          <div class="desc" id="workDesc"></div>
+          <a class="back-link" id="backLink" href="installations.html">Back to Installations</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next work">
+    <svg viewBox="0 0 24 24">
+      <path d="M9 4 L17 12 L9 20"></path>
+    </svg>
+  </button>
+
+  <div class="counter" id="counter"></div>
+</main>
+
+<script>
+const works = [
+  {
+    id: "fortress",
+    category: "Installations",
+    title: "Fortress for One Point Two",
+    year: "2024",
+    medium: "Installation",
+    backHref: "installations.html",
+    description: `Write your project description here.
+
+You can add multiple paragraphs like this.
+Medium, concept, exhibition information, dimensions, and venue can all go here.`,
+    media: [
+      {
+        type: "image",
+        src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/fortress.jpg",
+        alt: "Fortress for One Point Two"
+      }
+    ]
+  },
+  {
+    id: "search-light",
+    category: "Installations",
+    title: "Search Light",
+    year: "2024",
+    medium: "Installation",
+    backHref: "installations.html",
+    description: `Write your description for Search Light here.`,
+    media: [
+      {
+        type: "image",
+        src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/searchlight2.jpg",
+        alt: "Search Light"
+      }
+    ]
+  },
+  {
+    id: "floating-signals",
+    category: "Installations",
+    title: "Floating Signals",
+    year: "2024",
+    medium: "Installation",
+    backHref: "installations.html",
+    description: `Write your description for Floating Signals here.`,
+    media: [
+      {
+        type: "image",
+        src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/floatingsignals.jpg",
+        alt: "Floating Signals"
+      },
+      {
+        type: "image",
+        src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@9f405075aeca6f6a747ee92911930818411a614d/images/unfamiliar.jpg",
+        alt: "Floating Signals detail"
+      }
+    ]
+  },
+  {
+    id: "arc-ground",
+    category: "Installations",
+    title: "Arc of Triumph: On Ground",
+    year: "2024",
+    medium: "Installation",
+    backHref: "installations.html",
+    description: `Write your description for Arc of Triumph: On Ground here.`,
+    media: [
+      {
+        type: "image",
+        src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/arc_triumph_ground.jpeg",
+        alt: "Arc of Triumph On Ground"
+      }
+    ]
+  }
+];
+
+const params = new URLSearchParams(window.location.search);
+const currentId = params.get("work") || works[0].id;
+let currentIndex = works.findIndex(work => work.id === currentId);
+if (currentIndex === -1) currentIndex = 0;
+
+const mediaStack = document.getElementById("mediaStack");
+const workCategory = document.getElementById("workCategory");
+const workTitle = document.getElementById("workTitle");
+const workMeta = document.getElementById("workMeta");
+const workDesc = document.getElementById("workDesc");
+const backLink = document.getElementById("backLink");
+const counter = document.getElementById("counter");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+function renderWork(index){
+  const work = works[index];
+  mediaStack.innerHTML = "";
+
+  work.media.forEach(item => {
+    const mediaItem = document.createElement("div");
+    mediaItem.className = "media-item";
+
+    if(item.type === "image"){
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.alt = item.alt || work.title;
+      mediaItem.appendChild(img);
+    }
+
+    if(item.type === "video"){
+      const video = document.createElement("video");
+      video.src = item.src;
+      video.controls = true;
+      video.playsInline = true;
+      if(item.poster) video.poster = item.poster;
+      mediaItem.appendChild(video);
+    }
+
+    mediaStack.appendChild(mediaItem);
+  });
+
+  workCategory.textContent = work.category || "";
+  workTitle.textContent = work.title || "";
+  workMeta.textContent = [work.year, work.medium].filter(Boolean).join(" / ");
+  workDesc.textContent = work.description || "";
+  backLink.href = work.backHref || "works.html";
+  backLink.textContent = `Back to ${work.category || "Works"}`;
+  counter.textContent = `${index + 1} / ${works.length}`;
+
+  const newUrl = `${window.location.pathname}?work=${work.id}`;
+  window.history.replaceState({}, "", newUrl);
+}
+
+function goPrev(){
+  currentIndex = (currentIndex - 1 + works.length) % works.length;
+  renderWork(currentIndex);
+}
+
+function goNext(){
+  currentIndex = (currentIndex + 1) % works.length;
+  renderWork(currentIndex);
+}
+
+prevBtn.addEventListener("click", goPrev);
+nextBtn.addEventListener("click", goNext);
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "ArrowLeft") goPrev();
+  if(e.key === "ArrowRight") goNext();
+});
+
+renderWork(currentIndex);
+</script>
+
+</body>
+</html>
