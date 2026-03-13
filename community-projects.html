@@ -61,31 +61,37 @@ color:#111;
 }
 
 .container{
-max-width:900px;
+max-width:1380px;
 margin:0 auto;
 padding:54px 28px 80px;
 }
 
+/* GRID */
 .grid{
 display:grid;
-grid-template-columns:1fr;
-gap:40px;
+grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+gap:56px 42px;
+align-items:start;
 }
 
+/* CARD */
 .card{
 display:block;
 text-decoration:none;
 color:inherit;
+max-width:260px;
 }
 
+/* IMAGE */
 .thumb{
 width:100%;
-aspect-ratio:1.2/1;
+aspect-ratio:1/1;
 object-fit:cover;
 display:block;
 background:#ececec;
 }
 
+/* TEXT */
 .label{
 margin-top:12px;
 font-size:12px;
@@ -96,14 +102,25 @@ line-height:1.8;
 color:#666;
 }
 
+/* MOBILE */
 @media (max-width:640px){
 .nav{
 flex-direction:column;
 align-items:flex-start;
 }
+
 .menu{
 gap:18px;
 flex-wrap:wrap;
+}
+
+.grid{
+grid-template-columns:repeat(auto-fill, minmax(180px,1fr));
+gap:40px 20px;
+}
+
+.card{
+max-width:none;
 }
 }
 </style>
@@ -113,21 +130,28 @@ flex-wrap:wrap;
 <header class="header">
 <nav class="nav">
 <a class="brand" href="works.html">Nam Jung Kim</a>
+
 <div class="menu">
 <a href="about.html">About</a>
 <a class="active" href="works.html">Works</a>
 <a href="publications.html">Publications</a>
 <a href="contact.html">Contact</a>
 </div>
+
 </nav>
 </header>
 
 <main class="container">
+
 <section class="grid">
 
-<a class="card" href="#"><img class="thumb" src="assets/community-01.jpg" alt="Community Project 1"><div class="label">Yuyujajeok</div></a>
+<a class="card" href="#">
+<img class="thumb" src="assets/community-01.jpg" alt="Community Project 1">
+<div class="label">Yuyujajeok</div>
+</a>
 
 </section>
+
 </main>
 
 </body>
