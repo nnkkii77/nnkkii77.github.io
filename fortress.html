@@ -323,7 +323,7 @@ function createSlide(slide, index){
   if(slide.type === "text"){
     section.innerHTML = `
       <div class="slide-text">
-        <div class="text-block">${slide.content.replace(/\n/g, "<br><br>")}</div>
+        <div class="text-block">${slide.content.replace(/\n/g, "<br>")}</div>
       </div>
     `;
   }
