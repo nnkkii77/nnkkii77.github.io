@@ -14,6 +14,8 @@ padding:0;
 background:#f5f5f3;
 color:#111;
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
 }
 
 body{
@@ -92,7 +94,7 @@ display:block;
 }
 
 .slide-text{
-max-width:760px;
+max-width:980px;
 margin:0 auto;
 }
 
@@ -103,26 +105,36 @@ letter-spacing:-.02em;
 color:#111;
 }
 
-.text-small{
-font-size:clamp(14px,1.4vw,18px);
-line-height:1.45;
-letter-spacing:.01em;
-color:#666;
-}
-
-.text-bold{
-font-weight:600;
+.intro-block{
+max-width:980px;
+margin:0 auto;
 color:#111;
 }
 
-.meta{
-font-size:0.95em;
+.intro-title{
+font-size:clamp(28px,3.5vw,48px);
+line-height:1.12;
+letter-spacing:-.02em;
 font-weight:400;
-color:#666;
+color:#111;
 }
 
-.text-gap{
-margin-top:32px;
+.intro-info{
+margin-top:14px;
+font-size:clamp(20px,2.4vw,34px);
+line-height:1.22;
+letter-spacing:-.02em;
+font-weight:400;
+color:#111;
+}
+
+.intro-size{
+margin-top:14px;
+font-size:clamp(20px,2.4vw,34px);
+line-height:1.22;
+letter-spacing:-.02em;
+font-weight:400;
+color:#111;
 }
 
 .slide-image{
@@ -227,7 +239,14 @@ padding:28px 70px 70px;
 }
 .text-block{
 font-size:clamp(24px,5.6vw,36px);
-line-height:1.28;
+line-height:1.24;
+}
+.intro-title{
+font-size:clamp(24px,5.6vw,36px);
+}
+.intro-info,
+.intro-size{
+font-size:clamp(18px,4.6vw,28px);
 }
 .image-frame img,
 .image-frame video{
@@ -260,6 +279,13 @@ padding:58px 46px 82px;
 }
 .text-block{
 font-size:clamp(22px,7vw,30px);
+}
+.intro-title{
+font-size:clamp(22px,7vw,30px);
+}
+.intro-info,
+.intro-size{
+font-size:clamp(16px,5.4vw,24px);
 }
 .image-frame img,
 .image-frame video{
@@ -315,11 +341,13 @@ bottom:18px;
 <script>
 const slides = [
   {
-    type: "text",
+    type: "html",
     content: `
-        <span class="meta">FORTRESS FOR ONE POINT TWO</span><br>
-        <span class="meta">Mixed Media Installation 2025</span><br>
-        <span class="meta">2m x 2m x 2.3m</span>
+      <div class="intro-block">
+        <div class="intro-title">FORTRESS FOR ONE POINT TWO</div>
+        <div class="intro-info">Mixed Media Installation 2025</div>
+        <div class="intro-size">2m x 2m x 2.3m</div>
+      </div>
     `
   },
   {
@@ -349,13 +377,18 @@ function createSlide(slide, index){
   section.className = "slide";
   if(index === currentIndex) section.classList.add("active");
 
-  if(slide.type === "text"){
-    const isHtml = slide.content.includes("<");
+  if(slide.type === "html"){
     section.innerHTML = `
       <div class="slide-text">
-        <div class="text-block">
-          ${isHtml ? slide.content : slide.content.replace(/\n/g, "<br>")}
-        </div>
+        ${slide.content}
+      </div>
+    `;
+  }
+
+  if(slide.type === "text"){
+    section.innerHTML = `
+      <div class="slide-text">
+        <div class="text-block">${slide.content.replace(/\n/g, "<br>")}</div>
       </div>
     `;
   }
