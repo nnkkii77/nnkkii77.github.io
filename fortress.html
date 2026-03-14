@@ -105,19 +105,25 @@ color:#111;
 
 .text-small{
 font-size:clamp(14px,1.4vw,18px);
-line-height:1.6;
-letter-spacing:.02em;
+line-height:1.45;
+letter-spacing:.01em;
 color:#666;
-margin-top:24px;
 }
 
 .text-bold{
 font-weight:600;
+color:#111;
+}
+
+.meta{
+font-size:0.95em;
+font-weight:400;
+color:#666;
 }
 
 .text-gap{
 margin-top:32px;
-}  
+}
 
 .slide-image{
 display:flex;
@@ -294,8 +300,7 @@ bottom:18px;
     </svg>
   </button>
 
-  <div class="slide-stage" id="slideStage">
-  </div>
+  <div class="slide-stage" id="slideStage"></div>
 
   <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">
     <svg viewBox="0 0 24 24">
@@ -309,14 +314,15 @@ bottom:18px;
 
 <script>
 const slides = [
- {
+  {
     type: "text",
-    content: 
-    <div class="text-small">  
-    <span class="text-bold">`FORTRESS FOR ONE POINT TWO <br>
-    <span class="meta">Mixed Media Installation 2025 </span>
-    2m x 2m x 2.3m</span>
-    </div>`
+    content: `
+      <div class="text-small">
+        <span class="text-bold">FORTRESS FOR ONE POINT TWO</span><br>
+        <span class="meta">Mixed Media Installation 2025</span><br>
+        <span class="meta">2m x 2m x 2.3m</span>
+      </div>
+    `
   },
   {
     type: "text",
@@ -346,9 +352,12 @@ function createSlide(slide, index){
   if(index === currentIndex) section.classList.add("active");
 
   if(slide.type === "text"){
+    const isHtml = slide.content.includes("<");
     section.innerHTML = `
       <div class="slide-text">
-        <div class="text-block">${slide.content.replace(/\n/g, "<br>")}</div>
+        <div class="text-block">
+          ${isHtml ? slide.content : slide.content.replace(/\n/g, "<br>")}
+        </div>
       </div>
     `;
   }
@@ -389,7 +398,7 @@ function renderSlides(){
 function showSlide(index){
   const allSlides = document.querySelectorAll(".slide");
   allSlides.forEach(slide => slide.classList.remove("active"));
-  allSlides[index].classList.add("active");
+  if(allSlides[index]) allSlides[index].classList.add("active");
   slideCount.textContent = `${index + 1} / ${slides.length}`;
 }
 
