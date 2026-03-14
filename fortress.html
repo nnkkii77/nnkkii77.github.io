@@ -103,6 +103,22 @@ letter-spacing:-.02em;
 color:#111;
 }
 
+.text-small{
+font-size:clamp(14px,1.4vw,18px);
+line-height:1.6;
+letter-spacing:.02em;
+color:#666;
+margin-top:24px;
+}
+
+.text-bold{
+font-weight:600;
+}
+
+.text-gap{
+margin-top:32px;
+}  
+
 .slide-image{
 display:flex;
 align-items:center;
@@ -295,9 +311,12 @@ bottom:18px;
 const slides = [
  {
     type: "text",
-    content: `FORTRESS FOR ONE POINT TWO <div>
-    Mixed Media Installation 2025 <div>
-    2m x 2m x 2.3m<div>`
+    content: 
+    <div class="text-small">  
+    <span class="text-bold">`FORTRESS FOR ONE POINT TWO <br>
+    <span class="meta">Mixed Media Installation 2025 </span>
+    2m x 2m x 2.3m</span>
+    </div>`
   },
   {
     type: "text",
