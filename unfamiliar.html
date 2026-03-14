@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sailing into Unfamiliar — Nam Jung Kim</title>
+
+<style>
+*{box-sizing:border-box;}
+
+html,body{
+margin:0;
+padding:0;
+background:#f5f5f3;
+color:#111;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+}
+
+body{
+min-height:100vh;
+overflow-x:hidden;
+}
+
+.header{
+position:sticky;
+top:0;
+background:rgba(245,245,243,.96);
+backdrop-filter:blur(6px);
+z-index:100;
+}
+
+.nav{
+max-width:1380px;
+margin:0 auto;
+padding:18px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.brand{
+text-decoration:none;
+color:inherit;
+font-size:24px;
+font-weight:700;
+letter-spacing:.04em;
+text-transform:uppercase;
+}
+
+.menu{
+display:flex;
+gap:34px;
+font-size:12px;
+letter-spacing:.18em;
+text-transform:uppercase;
+}
+
+.menu a{
+text-decoration:none;
+color:#8b8b8b;
+}
+
+.menu a:hover,
+.menu a.active{
+color:#111;
+}
+
+.page{
+position:relative;
+min-height:calc(100vh - 72px);
+}
+
+.slide-stage{
+position:relative;
+max-width:1380px;
+margin:0 auto;
+min-height:calc(100vh - 72px);
+padding:28px 120px 70px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.slide{
+width:100%;
+display:none;
+}
+
+.slide.active{
+display:block;
+}
+
+.slide-text{
+max-width:980px;
+margin:0 auto;
+}
+
+.text-block{
+font-size:clamp(28px,3.5vw,48px);
+line-height:1.14;
+letter-spacing:-.02em;
+color:#111;
+}
+
+.intro-block{
+max-width:980px;
+margin:0 auto;
+color:#111;
+}
+
+.intro-title{
+font-size:clamp(28px,3.5vw,48px);
+line-height:1.12;
+letter-spacing:-.02em;
+font-weight:400;
+color:#111;
+}
+
+.intro-info{
+margin-top:14px;
+font-size:clamp(20px,2.4vw,34px);
+line-height:1.22;
+letter-spacing:-.02em;
+font-weight:400;
+color:#111;
+}
+
+.intro-size{
+margin-top:14px;
+font-size:clamp(20px,2.4vw,34px);
+line-height:1.22;
+letter-spacing:-.02em;
+font-weight:400;
+color:#111;
+}
+
+.slide-image{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:65vh;
+}
+
+.image-frame{
+display:flex;
+align-items:center;
+justify-content:center;
+max-width:100%;
+}
+
+.image-frame img,
+.image-frame video{
+display:block;
+max-width:min(100%, 520px);
+max-height:62vh;
+width:auto;
+height:auto;
+object-fit:contain;
+}
+
+.nav-arrow{
+position:fixed;
+top:50%;
+transform:translateY(-50%);
+width:72px;
+height:72px;
+border:none;
+background:transparent;
+padding:0;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+z-index:90;
+opacity:.95;
+}
+
+.nav-arrow svg{
+width:34px;
+height:34px;
+stroke:#111;
+stroke-width:1.6;
+fill:none;
+stroke-linecap:round;
+stroke-linejoin:round;
+}
+
+.nav-arrow:hover{
+opacity:.55;
+}
+
+.nav-prev{left:22px;}
+.nav-next{right:22px;}
+
+.project-meta{
+position:fixed;
+left:32px;
+bottom:26px;
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#8b8b8b;
+z-index:80;
+}
+
+.slide-count{
+position:fixed;
+right:32px;
+bottom:26px;
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#8b8b8b;
+z-index:80;
+}
+
+.back-link{
+position:fixed;
+left:32px;
+top:92px;
+font-size:11px;
+letter-spacing:.18em;
+text-transform:uppercase;
+text-decoration:none;
+color:#8b8b8b;
+z-index:80;
+}
+
+.back-link:hover{
+color:#111;
+}
+
+@media (max-width:900px){
+.slide-stage{
+padding:28px 70px 70px;
+}
+.text-block{
+font-size:clamp(24px,5.6vw,36px);
+line-height:1.24;
+}
+.intro-title{
+font-size:clamp(24px,5.6vw,36px);
+}
+.intro-info,
+.intro-size{
+font-size:clamp(18px,4.6vw,28px);
+}
+.image-frame img,
+.image-frame video{
+max-width:min(100%, 360px);
+max-height:52vh;
+}
+.nav-arrow{
+width:56px;
+height:56px;
+}
+.nav-prev{left:6px;}
+.nav-next{right:6px;}
+}
+
+@media (max-width:640px){
+.nav{
+flex-direction:column;
+align-items:flex-start;
+}
+.menu{
+gap:18px;
+flex-wrap:wrap;
+}
+.back-link{
+left:18px;
+top:118px;
+}
+.slide-stage{
+padding:58px 46px 82px;
+}
+.text-block{
+font-size:clamp(22px,7vw,30px);
+}
+.intro-title{
+font-size:clamp(22px,7vw,30px);
+}
+.intro-info,
+.intro-size{
+font-size:clamp(16px,5.4vw,24px);
+}
+.image-frame img,
+.image-frame video{
+max-width:min(100%, 270px);
+max-height:46vh;
+}
+.project-meta{
+left:18px;
+bottom:18px;
+}
+.slide-count{
+right:18px;
+bottom:18px;
+}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="works.html">Nam Jung Kim</a>
+    <div class="menu">
+      <a href="about.html">About</a>
+      <a class="active" href="works.html">Works</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<a class="back-link" href="installations.html">Back to Installations</a>
+
+<main class="page">
+  <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">
+    <svg viewBox="0 0 24 24">
+      <path d="M15 4 L7 12 L15 20"></path>
+    </svg>
+  </button>
+
+  <div class="slide-stage" id="slideStage"></div>
+
+  <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">
+    <svg viewBox="0 0 24 24">
+      <path d="M9 4 L17 12 L9 20"></path>
+    </svg>
+  </button>
+</main>
+
+<div class="project-meta">Sailing into Unfamiliar / Installation / 2025</div>
+<div class="slide-count" id="slideCount">1 / 3</div>
+
+<script>
+const slides = [
+  {
+    type: "html",
+    content: `
+      <div class="intro-block">
+        <div class="intro-title">SAILING INTO UNFAMILIAR</div>
+        <div class="intro-info">2024, MIXED MEDIA INSTALLATION</div>
+        <div class="intro-size">6m x 4m x 1.5m</div>
+      </div>
+    `
+  },
+  {
+    type: "text",
+    content: `이것은 소리 없는 아우성저 푸른 해원(海原)을 향하여 흔드는영원한 노스탤지어의 손수건....(유치환, <깃발> 중에서)
+유치환 시인의 이 구절은 우리 안에 깊이 내재된 이상향에 대한 향수를 잘 표현해 주고 있다. 어디로부터 와서 어디로 향하는가, 무엇을 갈망하는가에 대한 질문에 답을 찾기 위해서는, 끊임없이 스스로에게 질문하며
+익숙한 곳에서 벗어나야 한다 - 경계선 밖으로 모험을 떠나야 하는 것이다. 그렇게 떠난 모험의 길에는 많은 낭만의 언어들이 포진되어 있다. 미지, 새로운 만남, 선택, 도전, 고뇌, 발견, 성장 - 문학적 서사 속에서는
+등장 인물들이 반드시 이 과정들을 겪어내며 이야기의 끝에 이른다.우주 항해를 하는 시대이지만 여전히 우리의 내면은 미지로 남아있고, 바쁘게 흘러가는 일상의 미시적 관계 속에 ‘나’와 절대자를 향한 질문은 힘을
+잃었다. 설치 작품 <비일상으로의 항해>는 저 멀리서 본연의 ‘나’를 부르는 소리에 응해 용기 있게 항해를 시작한 돛이자 ‘나’의 눈을 가리던 허상의 막이 걷히며 드러난 그 너머일지도 모른다.`
+  },
+  {
+    type: "image",
+    src: "https://cdn.jsdelivr.net/gh/nnkkii77/nnkkii77.github.io@c7541c4762e4c02ad579915f183437ae6aebb345/images/fortress.jpg",
+    alt: "Fortress for One Point Two"
+  }
+];
+
+const slideStage = document.getElementById("slideStage");
+const slideCount = document.getElementById("slideCount");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let currentIndex = 0;
+
+function createSlide(slide, index){
+  const section = document.createElement("section");
+  section.className = "slide";
+  if(index === currentIndex) section.classList.add("active");
+
+  if(slide.type === "html"){
+    section.innerHTML = `
+      <div class="slide-text">
+        ${slide.content}
+      </div>
+    `;
+  }
+
+  if(slide.type === "text"){
+    section.innerHTML = `
+      <div class="slide-text">
+        <div class="text-block">${slide.content.replace(/\n/g, "<br>")}</div>
+      </div>
+    `;
+  }
+
+  if(slide.type === "image"){
+    section.innerHTML = `
+      <div class="slide-image">
+        <div class="image-frame">
+          <img src="${slide.src}" alt="${slide.alt || ""}">
+        </div>
+      </div>
+    `;
+  }
+
+  if(slide.type === "video"){
+    section.innerHTML = `
+      <div class="slide-image">
+        <div class="image-frame">
+          <video controls playsinline ${slide.poster ? `poster="${slide.poster}"` : ""}>
+            <source src="${slide.src}">
+          </video>
+        </div>
+      </div>
+    `;
+  }
+
+  return section;
+}
+
+function renderSlides(){
+  slideStage.innerHTML = "";
+  slides.forEach((slide, index) => {
+    slideStage.appendChild(createSlide(slide, index));
+  });
+  slideCount.textContent = `${currentIndex + 1} / ${slides.length}`;
+}
+
+function showSlide(index){
+  const allSlides = document.querySelectorAll(".slide");
+  allSlides.forEach(slide => slide.classList.remove("active"));
+  if(allSlides[index]) allSlides[index].classList.add("active");
+  slideCount.textContent = `${index + 1} / ${slides.length}`;
+}
+
+function nextSlide(){
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+function prevSlide(){
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
+
+prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", nextSlide);
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "ArrowRight") nextSlide();
+  if(e.key === "ArrowLeft") prevSlide();
+});
+
+renderSlides();
+</script>
+
+</body>
+</html>
